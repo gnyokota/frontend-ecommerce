@@ -1,0 +1,54 @@
+$light: #ffd369;
+$dark: #222831;
+$main: #393e46;
+$contrastText: #eeeeee;
+
+.delete {
+  &__product {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+
+  &__card {
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 230px;
+    text-align: center;
+
+    &__title {
+      color: $light;
+      font-size: 1.5rem;
+      margin: 1rem auto;
+    }
+
+    &__subtitle {
+      color: $main;
+      margin: 1rem auto;
+    }
+
+    &__icons {
+      font-size: 4rem;
+    }
+
+    &__btn {
+      color: $main;
+      background-color: $light;
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+$light: #ffd369;
+$dark: #222831;
+$main: #393e46;
+$contrastText: #eeeeee;
+
+.loading {
+  margin: 2rem;
+  text-align: center;
+}
+
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  max-width: 280px;
+  text-align: center;
+
+  &__img {
+    margin: 1rem;
+    width: 50%;
+    height: auto;
+  }
+
+  &__body {
+    padding: 1rem;
+
+    a {
+      color: $main;
+    }
+
+    &__price {
+      font-size: 1rem;
+    }
+    /* Rating */
+    &__rating span {
+      color: $light;
+      margin: 0.1rem;
+    }
+
+    &__rating span:last-child {
+      color: $main;
+      margin: 0.5rem 0.1rem;
+    }
+  }
+
+  &__body > * {
+    margin-bottom: 0.5rem;
+  }
+}
+
+//part 8
