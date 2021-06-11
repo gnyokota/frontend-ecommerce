@@ -86,7 +86,9 @@ export const deleteProductError = (error: Error | null): AllProductActions => {
 
 export const fecthProducts = () => async (dispatch: Dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:8080/api/v1/products");
+    const { data } = await axios.get(
+      "https://ecommerce-pantanal.herokuapp.com/api/v1/products"
+    );
     dispatch(fetchProductsSuccess(data));
     dispatch(filterProduct(data));
   } catch (error) {
@@ -98,7 +100,7 @@ export const fecthProductDetails =
   (productId: string) => async (dispatch: Dispatch) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/products/${productId}`
+        `https://ecommerce-pantanal.herokuapp.com/api/v1/products/${productId}`
       );
       dispatch(fetchProductDetailsSuccess(data));
     } catch (error) {
@@ -110,12 +112,16 @@ export const createProduct = (form: FormData) => (dispatch: Dispatch) => {
   try {
     const temp = JSON.parse(localStorage.getItem("userInfo") as string);
     const token = temp.token;
-    axios.post("http://localhost:8080/api/v1/products/", form, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    axios.post(
+      "https://ecommerce-pantanal.herokuapp.com/api/v1/products/",
+      form,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
   } catch (error) {
     dispatch(createProductError(error));
   }
@@ -138,7 +144,7 @@ export const editProduct =
       const token = temp.token;
 
       axios.put(
-        `http://localhost:8080/api/v1/products/${productId}`,
+        `https://ecommerce-pantanal.herokuapp.com/api/v1/products/${productId}`,
         { title, description, category, countInStock, price, color, size },
         {
           headers: {
@@ -156,11 +162,14 @@ export const deleteProduct = (productId: string) => (dispatch: Dispatch) => {
     const temp = JSON.parse(localStorage.getItem("userInfo") as string);
     const token = temp.token;
 
-    axios.delete(`http://localhost:8080/api/v1/products/${productId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    axios.delete(
+      `https://ecommerce-pantanal.herokuapp.com/api/v1/products/${productId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
   } catch (error) {
     dispatch(deleteProductError(error));
   }
@@ -176,15 +185,14 @@ export const postReview =
   (productId: string, review: ReviewInput) => async (dispatch: Dispatch) => {
     const { name, comment, rating } = review;
     try {
-      axios
-        .put(`http://localhost:8080/api/v1/products/review/${productId}`, {
+      axios.put(
+        `https://ecommerce-pantanal.herokuapp.com/api/v1/products/review/${productId}`,
+        {
           name: name,
           comment: comment,
           rating: +rating,
-        })
-        .then(function (response) {
-          console.log(response);
-        });
+        }
+      );
     } catch (error) {
       throw new Error(error.message);
     }

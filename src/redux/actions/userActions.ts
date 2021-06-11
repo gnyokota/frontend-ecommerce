@@ -71,7 +71,9 @@ export const userSignout = () => {
 
 export const fetchAllUsers = () => async (dispatch: Dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:8080/api/v1/users");
+    const { data } = await axios.get(
+      "https://ecommerce-pantanal.herokuapp.com/api/v1/users"
+    );
     dispatch(getAllUsers(data));
   } catch (error) {
     throw new Error(error.message);
@@ -90,7 +92,7 @@ export const editUser =
   async (dispatch: Dispatch) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:8080/api/v1/users/${userId}`,
+        `https://ecommerce-pantanal.herokuapp.com/api/v1/users/${userId}`,
         {
           firstName,
           lastName,
@@ -109,7 +111,7 @@ export const signin =
   (email: string, password: string) => async (dispatch: Dispatch) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/users/signin",
+        "https://ecommerce-pantanal.herokuapp.com/api/v1/users/signin",
         { email, password }
       );
       dispatch(signinSuccess(data));
@@ -123,12 +125,15 @@ export const register =
   (firstName: string, lastName: string, email: string, password: string) =>
   async (dispatch: Dispatch) => {
     try {
-      const { data } = await axios.post("http://localhost:8080/api/v1/users", {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        "https://ecommerce-pantanal.herokuapp.com/api/v1/users",
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        }
+      );
 
       dispatch(registerSuccess(data));
       dispatch(signinSuccess(data));

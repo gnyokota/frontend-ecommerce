@@ -129,7 +129,6 @@ const DashboardProduct = () => {
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
             const form = new FormData();
-            console.log(values.image);
             form.append("image", values.image);
             form.append("title", values.title);
             form.append("description", values.description);

@@ -1,3 +1,10 @@
+# Ecommerce App Pantanal
+
+This Full-Stack App was built with React, Typescript and Redux (frontend).
+The technologies used in the backend include Nodejs, Express, MongoDB, bcrypt, jsonwebtoken, multer, etc.
+
+The information for the products were taken from the [Fake Shop API](https://fakestoreapi.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

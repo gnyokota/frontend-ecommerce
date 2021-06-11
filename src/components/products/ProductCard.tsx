@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <Link to={`/products/${product._id}`}>
         <img
           className="card__img"
-          src={`http://localhost:8080/${product.image}`}
+          src={`https://ecommerce-pantanal.herokuapp.com/${product.image}`}
           alt={product.title}
         />
       </Link>

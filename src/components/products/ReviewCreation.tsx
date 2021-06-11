@@ -97,7 +97,6 @@ const ReviewCreation = ({ productId }: { productId: string }) => {
           onSubmit={(values, { resetForm }) => {
             dispatch(postReview(productId, values));
             resetForm();
-            window.location.reload();
           }}
         >
           {({ errors, touched }) => (

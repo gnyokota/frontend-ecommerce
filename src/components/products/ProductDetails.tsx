@@ -87,7 +87,9 @@ const ProductDetails = () => {
         <div className="details__item col-1">
           <img
             className="details__img"
-            src={`http://localhost:8080/${(productDetail as Product).image}`}
+            src={`https://ecommerce-pantanal.herokuapp.com/${
+              (productDetail as Product).image
+            }`}
             alt={(productDetail as Product).title}
           />
         </div>
