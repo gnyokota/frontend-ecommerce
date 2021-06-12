@@ -122,7 +122,7 @@ const ReviewCreation = ({ productId }: { productId: string }) => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <label className={classes.ratingLabel}>Rating</label>
+                <p className={classes.ratingLabel}>Rating</p>
                 <Field
                   name="rating"
                   component="select"

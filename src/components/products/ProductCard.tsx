@@ -9,11 +9,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div className="card">
       <Link to={`/products/${product._id}`}>
-        <img
-          className="card__img"
-          src={`https://ecommerce-pantanal.herokuapp.com/${product.image}`}
-          alt={product.title}
-        />
+        <img className="card__img" src={product.image} alt={product.title} />
       </Link>
       <div className="card__body">
         <Link to={`/products/${product._id}`}>

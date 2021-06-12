@@ -136,7 +136,7 @@ const CartDrawer = () => {
                   <TableCell align="center">
                     <img
                       className={classes.img}
-                      src={`http://localhost:8080/${item.product.image}`}
+                      src={item.product.image}
                       alt="countrie-flag"
                     />
                   </TableCell>
@@ -190,7 +190,7 @@ const CartDrawer = () => {
           </div>
         </TableContainer>
       ) : (
-        <div className={classes.loading}>No cart added</div>
+        <div className={classes.loading}>There are no items in cart</div>
       )}
     </Drawer>
   );

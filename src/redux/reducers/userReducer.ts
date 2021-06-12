@@ -28,39 +28,39 @@ const initialState: InitialState = {
 
 export const userReducer = (state = initialState, action: AllUserActions) => {
   switch (action.type) {
-    case USER_SIGNIN_SUCCESS:
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case USER_SIGNIN_ERROR:
-      return {
-        ...state,
-        errorSignin: action.payload,
-      };
-    case USER_REGISTER_SUCCESS:
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case USER_REGISTER_ERROR:
-      return {
-        ...state,
-        errorRegister: action.payload,
-      };
-    case GET_ALL_USERS:
-      return {
-        ...state,
-        allUsers: action.payload,
-      };
-    case USER_EDIT_ERROR:
-      return {
-        ...state,
-        errorEditUser: action.payload,
-      };
-    case USER_SIGNOUT:
-      return { ...state, user: null, error: null };
-    default:
-      return state;
+  case USER_SIGNIN_SUCCESS:
+    return {
+      ...state,
+      user: action.payload,
+    };
+  case USER_SIGNIN_ERROR:
+    return {
+      ...state,
+      errorSignin: action.payload,
+    };
+  case USER_REGISTER_SUCCESS:
+    return {
+      ...state,
+      user: action.payload,
+    };
+  case USER_REGISTER_ERROR:
+    return {
+      ...state,
+      errorRegister: action.payload,
+    };
+  case GET_ALL_USERS:
+    return {
+      ...state,
+      allUsers: action.payload,
+    };
+  case USER_EDIT_ERROR:
+    return {
+      ...state,
+      errorEditUser: action.payload,
+    };
+  case USER_SIGNOUT:
+    return { ...state, user: null, error: null };
+  default:
+    return state;
   }
 };

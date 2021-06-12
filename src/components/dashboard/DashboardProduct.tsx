@@ -31,12 +31,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     categoryLabel: {
       color: "#8a8a8a",
+      margin: "0.5rem 0 0.25rem",
+      textAlign: "left",
     },
     select: {
-      width: "80%",
+      width: "100%",
       fontSize: "1rem",
       padding: "0.5rem 0.25rem",
-      margin: ".2rem 1rem",
+      margin: ".2rem 0",
     },
     submit: {
       color: theme.palette.primary.dark,
@@ -51,8 +53,8 @@ const useStyles = makeStyles((theme: Theme) =>
       textDecoration: "none",
     },
     input: {
-      margin: "1rem auto",
-      width: "90%",
+      margin: "0.5rem auto",
+      width: "100%",
       textAlign: "center",
     },
     signUp: {
@@ -139,7 +141,7 @@ const DashboardProduct = () => {
             form.append("size", values.size);
             dispatch(createProduct(form));
             resetForm();
-            // window.location.assign("/dashboard");
+            window.location.reload();
           }}
         >
           {(formProps) => (
@@ -203,13 +205,14 @@ const DashboardProduct = () => {
                 />
               </Grid>
               <Grid item xs={12} className={classes.categoryBox}>
-                <label className={classes.categoryLabel}>Category</label>
+                <p className={classes.categoryLabel}>Category</p>
                 <Field
+                  label="Category"
                   name="category"
                   component="select"
                   className={classes.select}
                 >
-                  <option value="Appliances">Appliances</option>
+                  <option value="Appliances">Acessories</option>
                   <option value="Beauty & Personal Care">
                     Beauty & Personal Care
                   </option>

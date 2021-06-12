@@ -33,12 +33,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     adminLabel: {
       color: "#8a8a8a",
+      margin: "0.5rem 0 0.25rem",
+      textAlign: "left",
     },
     select: {
-      width: "80%",
+      width: "100%",
       fontSize: "1rem",
       padding: "0.5rem 0.25rem",
-      margin: ".2rem 1rem",
+      margin: ".2rem 0",
     },
     submit: {
       color: theme.palette.primary.dark,
@@ -121,7 +123,7 @@ const DashboardUser = () => {
           {({ errors, touched }) => (
             <Form className={classes.form}>
               <Grid item xs={12} className={classes.adminBox}>
-                <label className={classes.adminLabel}>Email</label>
+                <p className={classes.adminLabel}>Email</p>
                 <Field
                   name="email"
                   component="select"
@@ -181,7 +183,7 @@ const DashboardUser = () => {
                 isAdmin
               )
             );
-            window.location.assign("/dashboard");
+            window.location.reload();
           }}
         >
           {({ errors, touched }) => (
@@ -217,7 +219,7 @@ const DashboardUser = () => {
                 />
               </Grid>
               <Grid item xs={12} className={classes.adminBox}>
-                <label className={classes.adminLabel}>Admin</label>
+                <p className={classes.adminLabel}>Is the person admin?</p>
                 <Field
                   name="isAdmin"
                   component="select"

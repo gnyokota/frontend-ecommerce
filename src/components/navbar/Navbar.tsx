@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fade,
@@ -12,12 +12,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link, useLocation } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
@@ -161,7 +158,7 @@ const Navbar = () => {
   const { user } = useSelector((state: State) => state.user);
   const { userCart } = useSelector((state: State) => state.cart);
 
-  var totalQty = !(userCart as Cart).items
+  const totalQty = !(userCart as Cart).items
     ? 0
     : (userCart as Cart).items.reduce(
         (accum, item) => accum + (item.qty as number),
@@ -171,107 +168,6 @@ const Navbar = () => {
   const handleCart = () => {
     dispatch(toggleCart(true));
   };
-
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    useState<null | HTMLElement>(null);
-
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu =
-    location.pathname === "/" || location.pathname.includes("/products") ? (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        id={mobileMenuId}
-        keepMounted
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
-      >
-        <MenuItem onClick={() => dispatch(toggleCart(true))}>
-          <IconButton aria-label="User cart" color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-          <p>Cart</p>
-        </MenuItem>
-        {user ? (
-          <div>
-            {user.isAdmin ? (
-              <MenuItem>
-                <Link to="/dashboard" className={classes.iconMobile}>
-                  <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    color="inherit"
-                  >
-                    <EditIcon />
-                  </IconButton>
-                  <p className={classes.iconMobile}>Edit</p>
-                </Link>
-              </MenuItem>
-            ) : (
-              ""
-            )}
-            <MenuItem>
-              <Link to="/" className={classes.iconMobile}>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="primary-search-account-menu"
-                  color="inherit"
-                  onClick={() => dispatch(signout())}
-                >
-                  <ExitToAppIcon />
-                </IconButton>
-                <p className={classes.iconMobile}>Logout</p>
-              </Link>
-            </MenuItem>
-          </div>
-        ) : (
-          <MenuItem>
-            <Link to="/signin" className={classes.iconMobile}>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="primary-search-account-menu"
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <p className={classes.iconMobile}>Sign in</p>
-            </Link>
-          </MenuItem>
-        )}
-      </Menu>
-    ) : (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        id={mobileMenuId}
-        keepMounted
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
-      >
-        <MenuItem onClick={() => dispatch(toggleCart(true))}>
-          <IconButton aria-label="User cart" color="inherit">
-            <Badge badgeContent={+totalQty} color="secondary">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-          <p>Cart</p>
-        </MenuItem>
-      </Menu>
-    );
 
   return (
     <div className={classes.grow}>
@@ -365,20 +261,8 @@ const Navbar = () => {
           ) : (
             ""
           )}
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
     </div>
   );
 };

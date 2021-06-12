@@ -87,9 +87,7 @@ const ProductDetails = () => {
         <div className="details__item col-1">
           <img
             className="details__img"
-            src={`https://ecommerce-pantanal.herokuapp.com/${
-              (productDetail as Product).image
-            }`}
+            src={(productDetail as Product).image}
             alt={(productDetail as Product).title}
           />
         </div>
@@ -130,6 +128,7 @@ const ProductDetails = () => {
             {(productDetail as Product).reviews.length
               ? (productDetail as Product).reviews.map(
                   (rev: Review, index: number) => (
+                    // eslint-disable-next-line indent
                     <div key={index}>
                       <li className="details__review__subtitle">
                         <h4>{rev.name}</h4>
@@ -177,7 +176,7 @@ const ProductDetails = () => {
                       <select
                         className="details__box__select"
                         value={qty}
-                        onChange={(e) => dispatch(addCartQty(+e.target.value))}
+                        onBlur={(e) => dispatch(addCartQty(+e.target.value))}
                       >
                         {[
                           ...Array(
