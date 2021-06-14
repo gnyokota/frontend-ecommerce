@@ -161,7 +161,7 @@ const ProductEdit = () => {
               )
             );
 
-            window.location.assign("/dashboard");
+            window.location.assign("/");
           }}
         >
           {(formProps) => (

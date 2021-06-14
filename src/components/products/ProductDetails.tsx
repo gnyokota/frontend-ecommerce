@@ -17,7 +17,11 @@ import {
 import "./styles/ProductDetails.scss";
 import CartDrawer from "../cart/CartDrawer";
 import { User } from "../../redux/types/types";
-import { addCartQty, createCart } from "../../redux/actions/cartActions";
+import {
+  addCartQty,
+  createCart,
+  getCart,
+} from "../../redux/actions/cartActions";
 
 type State = {
   cart: {
@@ -51,6 +55,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(fecthProductDetails(productId));
+    dispatch(getCart());
   }, [dispatch, productId]);
 
   return (productDetail as Product) ? (
@@ -195,7 +200,7 @@ const ProductDetails = () => {
                       className="details__box__btn btn--primary btn--block"
                       onClick={() => {
                         dispatch(createCart(productId, qty));
-                        window.location.reload();
+                        window.location.assign("/");
                       }}
                     >
                       Add to Cart

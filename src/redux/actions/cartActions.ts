@@ -73,7 +73,6 @@ export const createCart =
     try {
       const temp = JSON.parse(localStorage.getItem("userInfo") as string);
       const userId = temp.id;
-
       axios.post(
         `https://ecommerce-pantanal.herokuapp.com/api/v1/cart/${userId}`,
         {

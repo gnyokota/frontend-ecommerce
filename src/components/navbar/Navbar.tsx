@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fade,
@@ -19,11 +18,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link, useLocation } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 
-import {
-  deleteCart,
-  getCart,
-  toggleCart,
-} from "../../redux/actions/cartActions";
+import { deleteCart, toggleCart } from "../../redux/actions/cartActions";
 
 import { Cart, User } from "../../redux/types/types";
 import { signout } from "../../redux/actions/userActions";
@@ -150,10 +145,6 @@ const Navbar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const location = useLocation();
-
-  useEffect(() => {
-    dispatch(getCart());
-  }, [dispatch]);
 
   const { user } = useSelector((state: State) => state.user);
   const { userCart } = useSelector((state: State) => state.cart);

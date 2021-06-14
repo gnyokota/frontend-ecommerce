@@ -151,7 +151,7 @@ const CartDrawer = () => {
                       color="inherit"
                       onClick={() => {
                         dispatch(deleteProductCart(item.product._id));
-                        window.location.reload();
+                        window.location.assign("/");
                       }}
                     >
                       <DeleteIcon />
@@ -175,7 +175,6 @@ const CartDrawer = () => {
                   <Button
                     onClick={() => {
                       dispatch(cleanCart());
-                      window.location.reload();
                     }}
                     className={classes.btn}
                   >
