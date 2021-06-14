@@ -160,7 +160,6 @@ const ProductEdit = () => {
                 productId
               )
             );
-
             window.location.assign("/");
           }}
         >

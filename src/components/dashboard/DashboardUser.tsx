@@ -183,7 +183,7 @@ const DashboardUser = () => {
                 isAdmin
               )
             );
-            window.location.reload();
+            window.location.assign("/");
           }}
         >
           {({ errors, touched }) => (

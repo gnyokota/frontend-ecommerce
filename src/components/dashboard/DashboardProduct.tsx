@@ -141,7 +141,7 @@ const DashboardProduct = () => {
             form.append("size", values.size);
             dispatch(createProduct(form));
             resetForm();
-            window.location.reload();
+            window.location.assign("/");
           }}
         >
           {(formProps) => (
