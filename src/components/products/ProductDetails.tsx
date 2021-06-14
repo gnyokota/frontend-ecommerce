@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange */
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,11 +18,7 @@ import {
 import "./styles/ProductDetails.scss";
 import CartDrawer from "../cart/CartDrawer";
 import { User } from "../../redux/types/types";
-import {
-  addCartQty,
-  createCart,
-  getCart,
-} from "../../redux/actions/cartActions";
+import { createCart, getCart } from "../../redux/actions/cartActions";
 
 type State = {
   cart: {
@@ -175,26 +172,6 @@ const ProductDetails = () => {
 
               {(productDetail as Product).countInStock > 0 && user ? (
                 <div>
-                  <li>
-                    <div className="row">
-                      <div className="details__box__label">Qty</div>
-                      <select
-                        className="details__box__select"
-                        value={qty}
-                        onBlur={(e) => dispatch(addCartQty(+e.target.value))}
-                      >
-                        {[
-                          ...Array(
-                            (productDetail as Product).countInStock
-                          ).keys(),
-                        ].map((qty, index) => (
-                          <option key={index} value={qty + 1}>
-                            {qty + 1}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </li>
                   <li>
                     <button
                       className="details__box__btn btn--primary btn--block"
