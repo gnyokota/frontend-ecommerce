@@ -224,10 +224,7 @@ const ProductEdit = () => {
                 />
               </Grid>
               <Grid item xs={12} className={classes.categoryBox}>
-                <label className={classes.categoryLabel}>
-                  <input type="text" />
-                  Category
-                </label>
+                <p className={classes.categoryLabel}>Category</p>
                 <Field
                   name="category"
                   component="select"
